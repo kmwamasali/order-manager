@@ -1,9 +1,10 @@
-import Layout from '../../ui/layout';
+import DataTable from '../../ui/DataTable';
+import Layout from '../../ui/Layout';
 
 function Dashboard() {
   return (
     <Layout pageTitle='Dashboard'>
-      Page Content
+      <DataTable />
     </Layout>
   )
 }
