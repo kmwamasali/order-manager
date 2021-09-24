@@ -69,11 +69,11 @@ function Layout({ pageTitle, children }: LayoutProps) {
         </Toolbar>
       </AppBar>
       {/* Content section */}
-      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
+      <Container maxWidth="xl" sx={{ pt: 4, pb: 6 }}>
         <Typography
-          component="h1"
-          variant="h2"
-          align="center"
+          component="h3"
+          variant="h4"
+          align="left"
           color="text.primary"
           gutterBottom
         >
@@ -88,11 +88,11 @@ function Layout({ pageTitle, children }: LayoutProps) {
         component="footer"
         sx={{
           borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 8,
-          py: [3, 6],
+          mt: 2,
+          py: [1, 6],
         }}
       >
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 2 }} />
       </Container>
       {/* End footer */}
     </React.Fragment>
