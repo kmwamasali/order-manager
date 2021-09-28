@@ -1,0 +1,234 @@
+{
+  "content" : [
+      {
+      "id" : "1438edde-1e3e-4798-88af-f9ebbd433dea",
+      "businessCode" : "PIZZA",
+      "number" : "0",
+      "type" : "SCHEDULED",
+      "receptionType": "PICKUP",
+      "status" : "Confirmed",
+      "requestedDate" : "2021-05-14T12:21:53",
+      "scheduledDate" : "2021-05-14T15:00:00",
+      "confirmedDate" : "2021-05-14T12:22:30",
+      "channel" : "IOS",
+      "customer": {
+        "customerEmail" : "e.montes@pizza.com",
+        "customerId" : "70e3bb25-a6f4-40e5-9f56-e1fac6318a47",
+        "customerName" : "Eva",
+        "customerLastName" : "Montes",
+        "customerPhoneNumber" : "+34666666666",
+        "customerLocale" : "es_ES",
+        "elegibleCoupon" : true,
+        "Coupon" : "ORDER_10"
+      },
+      "hub": {
+        "hubId" : "a1e8ec1d-c1ca-4687-9db5-111b5d51ba26",
+        "hubName" : "Pizza Jeff Gran Vía",
+        "hubCode" : "PIZZA_GRAN_VIA",
+        "hubAddress" : "Gran Via",
+        "hubAddressNumber" : "23",
+        "hubAddressLocationLatitude" : 27.3803812,
+        "hubAddressLocationLongitude" : 33.6322921
+      },
+      "products" : [
+        {
+          "productCode" : "0654390923782734JB65",
+          "reservationType" : "PIZZA",
+          "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+          "productName" : "Pizza Mediana Texas BBQ",
+          "productDescription" : "El auténtico sabor BBQ"
+        }
+      ]
+    },
+    {
+      "id" : "1438edde-1e3e-4798-88af-fsas4568967bd433dea",
+      "businessCode" : "PIZZA",
+      "number" : "1",
+      "type" : "ASAP",
+      "receptionType": "HUB",
+      "status" : "IN_PROCESS",
+      "requestedDate" : "2021-05-14T13:30:00",
+      "scheduledDate" : null,
+      "confirmedDate" : "2021-05-14T13:30:45",
+      "channel" : "HUB",
+      "customer": {
+        "customerEmail" : "rafael.vergara@mrjeffapp.com",
+        "customerId" : "70e3bb25-a6f4-40e5-5f56-e1fac6318a47",
+        "customerName" : "Rafael",
+        "customerLastName" : "Vergara",
+        "customerPhoneNumber" : "+34666666667",
+        "customerLocale" : "es_ES",
+        "elegibleCoupon" : false,
+        "Coupon" : ""
+      },
+      "hub": {
+        "hubId" : "a1e8ec1d-c1ca-4687-9db5-111b5d51ba26",
+        "hubName" : "Pizza Jeff Gran Vía",
+        "hubCode" : "PIZZA_GRAN_VIA",
+        "hubAddress" : "Gran Via",
+        "hubAddressNumber" : "23",
+        "hubAddressLocationLatitude" : 27.3803812,
+        "hubAddressLocationLongitude" : 33.6322921
+      },
+      "products" : [ {
+        "productCode" : "06543909237827J427CE",
+        "reservationType" : "PIZZA",
+        "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+        "productName" : "Pizza Mediana Carbonara",
+        "productDescription" : "Todo el sabor de italia"
+      },
+      {
+        "productCode" : "06543909237827J427CB",
+        "reservationType" : "PIZZA",
+        "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+        "productName" : "Cocacola 1L",
+        "productDescription" : "Botella De Cocacola de 1L"
+      }  ]
+    },
+    {
+      "id" : "1438ej54e-1e3e-4798-88af-fsas4568967bd433dea",
+      "businessCode" : "PIZZA",
+      "number" : "2",
+      "type" : "ASAP",
+      "receptionType": "DELIVER",
+      "status" : "IN_DELIVERY",
+      "requestedDate" : "2021-05-14T13:30:53",
+      "scheduledDate" : null,
+      "confirmedDate" : "2021-05-14T13:33:53",
+      "channel" : "ANDROID",
+      "customer": {
+        "customerEmail" : "andresrodrigues@pizza.com",
+        "customerId" : "70e3bb25-a6f4-40e5-5f56-e1fac6318a47",
+        "customerName" : "Andres",
+        "customerLastName" : "Rodrigues",
+        "customerPhoneNumber" : "+346328590366",
+        "customerLocale" : "es_ES",
+        "elegibleCoupon" : true,
+        "Coupon" : "ABOVE_40"
+      },
+      "hub": {
+        "hubId" : "a1e8ec1d-c1ca-4687-9db5-111b5d51ba26",
+        "hubName" : "Pizza Jeff Gran Vía",
+        "hubCode" : "PIZZA_GRAN_VIA",
+        "hubAddress" : "Gran Via",
+        "hubAddressNumber" : "23",
+        "hubAddressLocationLatitude" : 27.3803812,
+        "hubAddressLocationLongitude" : 33.6322921
+      },
+      "products" : [
+        {
+        "sourceId" : "15ac4601-81f7-47e9-8a3d-d9c3b171jbc2",
+        "productCode" : "06543909237827J427CE",
+        "reservationType" : "PIZZA",
+        "id" : "34fcd15d-38bb-48b4-23lk-2c048b7b484b",
+        "productName" : "Pizza Familiar Especial Jeff",
+        "productDescription" : "Todo el sabor de italia"
+      },
+      {
+        "productCode" : "06543909237827J427CE",
+        "reservationType" : "PIZZA",
+        "id" : "34fcd15d-38bb-48b4-4k5jh-2c048b7b484b",
+        "productName" : "Pizza familiar Carbonara",
+        "productDescription" : "Todo el sabor de italia"
+      },
+      {
+        "sourceId" : "15ac4601-81f7-jj58-8a3d-d9c3b171aaa2",
+        "productCode" : "06543909237827J427CE",
+        "reservationType" : "PIZZA",
+        "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+        "productName" : "Cocacola 1L",
+        "productDescription" : "Botella De Cocacola de 1L"
+      }
+      ]
+    },
+    {
+      "id" : "1438ej54e-23jh-4798-88af-fsas4568967bd4bsklr7",
+      "businessCode" : "PIZZA",
+      "number" : "3",
+      "type" : "ASAP",
+      "receptionType": "IN_HUB",
+      "status" : "CANCEL",
+      "requestedDate" : "2021-05-14T13:35:00",
+      "scheduledDate" : null,
+      "confirmedDate" : "2021-05-14T13:37:20",
+      "channel" : "ANDROID",
+      "customer": {
+        "customerEmail" : "ac.ortiz@pizza.com",
+        "customerId" : "70e3bb25-a6f4-40e5-5f56-e1fac6318a47",
+        "customerName" : "Amapolio",
+        "customerLastName" : "Campogrande",
+        "customerPhoneNumber" : "+34666060606",
+        "customerLocale" : "es_ES",
+        "elegibleCoupon" : false,
+        "Coupon" : ""
+      },
+      "hub": {
+        "hubId" : "a1e8ec1d-c1ca-4687-9db5-111b5d51ba26",
+        "hubName" : "Pizza Jeff Gran Vía",
+        "hubCode" : "PIZZA_GRAN_VIA",
+        "hubAddress" : "Gran Via",
+        "hubAddressNumber" : "23",
+        "hubAddressLocationLatitude" : 27.3803812,
+        "hubAddressLocationLongitude" : 33.6322921
+      },
+      "products" : [
+        {
+          "sourceId" : "15ac4601-81f7-jj58-8a3d-d9c3b171aaa2",
+          "productCode" : "06543909237827J427CE",
+          "reservationType" : "PIZZA",
+          "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+          "productName" : "Cocacola 1L",
+          "productDescription" : "Botella De Cocacola de 1L"
+        }
+      ]
+    },
+    {
+      "id" : "1438ej54e-23jh-4798-88af-fsas4568967bd4bsklr7",
+      "businessCode" : "PIZZA",
+      "number" : "4",
+      "type" : "ASAP",
+      "receptionType": "CONFIRMED",
+      "status" : "",
+      "requestedDate" : "2021-05-14T14:58:00",
+      "scheduledDate" : null,
+      "confirmedDate" : "2021-05-14T14:59:35",
+      "channel" : "HUB",
+      "customer": {
+        "customerEmail" : "paranas@pizza.com",
+        "customerId" : "70e3bb25-a6f4-sfd8-5f56-e1fac631887d",
+        "customerName" : "Parafina",
+        "customerLastName" : "Arenas",
+        "customerPhoneNumber" : "+34666060606",
+        "customerLocale" : "es_ES",
+        "elegibleCoupon" : true,
+        "Coupon" : "FIRST_ORDER"
+      },
+      "hub": {
+        "hubId" : "a1e8ec1d-c1ca-4687-9db5-111b5d51ba26",
+        "hubName" : "Pizza Jeff Gran Vía",
+        "hubCode" : "PIZZA_GRAN_VIA",
+        "hubAddress" : "Gran Via",
+        "hubAddressNumber" : "23",
+        "hubAddressLocationLatitude" : 27.3803812,
+        "hubAddressLocationLongitude" : 33.6322921
+      },
+      "products" : [
+        {
+          "productCode" : "0654390923782734JB65",
+          "reservationType" : "PIZZA",
+          "id" : "34fcd15d-38bb-48b4-bf2a-2c048b7b484b",
+          "productName" : "Pizza Mediana Texas BBQ",
+          "productDescription" : "El auténtico sabor BBQ"
+        },
+        {
+          "sourceId" : "15ac4601-81f7-jj58-8a3d-ahdf638fhwb6",
+          "productCode" : "06543909237827Jdb67",
+          "reservationType" : "PIZZA",
+          "id" : "aa23d15d-29fa-48b4-bf2a-2c048b7b23b6",
+          "productName" : "Cruzcampo lata",
+          "productDescription" : "Lata De Cruzcampo de 33CL"
+        }
+      ]
+    }
+  ]
+}
