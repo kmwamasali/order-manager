@@ -7,10 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { fetchData } from '../../features/order/orderAPI';
+import { useAppSelector } from '../../app/hooks';
+import { selectOrders, fetchOrderData } from '../../features/order/orderSlice';
+import { useDispatch } from 'react-redux';
 
 interface Column {
-  id: 'order' | 'priority' | 'delivery' | 'status' | 'channel';
+  id: 'order' | 'priority' | 'delivery' | 'status' | 'channel' | 'customer' | 'customer_email' | 'products';
   label: string;
   minWidth?: number;
   align?: 'right';
@@ -52,10 +54,11 @@ const rows = [
 ];
 
 export default function DataTable() {
-  const newFunc = async () => await fetchData().then(data => console.log(data.data));
+  const dispatch = useDispatch();
+  const data = useAppSelector(selectOrders);
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  newFunc();
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
