@@ -8,11 +8,11 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useAppSelector } from '../../app/hooks';
-import { selectOrders, fetchOrderData } from '../../features/order/orderSlice';
+import { selectOrders, fetchOrderData, sort } from '../../features/order/orderSlice';
 import { useDispatch } from 'react-redux';
 
 interface Column {
-  id: 'order' | 'priority' | 'delivery' | 'status' | 'channel' | 'customer' | 'customer_email' | 'products';
+  id: 'number' | 'type' | 'receptionType' | 'requestedDate' | 'status' | 'channel' | 'customer' | 'customerEmail' | 'products';
   label: string;
   minWidth?: number;
   align?: 'right';
@@ -20,11 +20,14 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: 'order', label: 'Order', minWidth: 100 },
-  { id: 'priority', label: 'Priority', minWidth: 100 },
-  { id: 'delivery', label: 'Delivery', minWidth: 100 },
+  { id: 'number', label: 'Order', minWidth: 100 },
+  { id: 'type', label: 'Priority', minWidth: 100 },
+  { id: 'receptionType', label: 'Delivery', minWidth: 100 },
   { id: 'status', label: 'status', minWidth: 100, align: 'right' },
-  { id: 'channel', label: 'channel', minWidth: 100, align: 'right' }
+  { id: 'channel', label: 'channel', minWidth: 100, align: 'right' },
+  { id: 'customer', label: 'Customer Name', minWidth: 100 },
+  { id: 'customerEmail', label: 'Customer Email', minWidth: 100 },
+  { id: 'products', label: 'Products', minWidth: 100 }
 ];
 
 interface Data {
@@ -33,6 +36,9 @@ interface Data {
   delivery: string;
   status: string;
   channel: string;
+  customer: string;
+  customer_email: string;
+  products: string;
 }
 
 function createData(
@@ -40,17 +46,20 @@ function createData(
   priority: string,
   delivery: string,
   status: string,
-  channel: string
+  channel: string,
+  customer: string,
+  customer_email: string,
+  products: string
 ): Data {
-  return { order, priority, delivery, status, channel };
+  return { order, priority, delivery, status, channel, customer, customer_email, products };
 }
 
 const rows = [
-  createData('0', 'delivery', 'PICKUP', 'Confirmed', 'IOS'),
-  createData('1', 'ASAP', 'HUB', 'IN_PROCESS', 'HUB'),
-  createData('2', 'ASAP', 'DELIVER', 'IN_DELIVERY', 'ANDROID'),
-  createData('3', 'ASAP', 'IN_HUB', 'CANCEL', 'ANDROID'),
-  createData('4', 'ASAP', 'CONFIRMED', '_', 'HUB')
+  createData('0', 'delivery', 'PICKUP', 'Confirmed', 'IOS', '', '', ''),
+  createData('1', 'ASAP', 'HUB', 'IN_PROCESS', 'HUB', '', '', ''),
+  createData('2', 'ASAP', 'DELIVER', 'IN_DELIVERY', 'ANDROID', '', '', ''),
+  createData('3', 'ASAP', 'IN_HUB', 'CANCEL', 'ANDROID', '', '', ''),
+  createData('4', 'ASAP', 'CONFIRMED', '_', 'HUB', '', '', '')
 ];
 
 export default function DataTable() {
@@ -60,6 +69,11 @@ export default function DataTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  React.useEffect(() => {
+    return async () => {dispatch(fetchOrderData());
+    dispatch(sort())};
+  }, [dispatch]);
+
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -68,6 +82,10 @@ export default function DataTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleClick = (type: string) => {
+    if (type === 'type') return dispatch(sort());
+  }
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -80,6 +98,7 @@ export default function DataTable() {
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
+                  onClick={() => handleClick(column.id)}
                 >
                   {column.label}
                 </TableCell>
@@ -87,13 +106,16 @@ export default function DataTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.priority}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      let value = row[column.id];
+                      if (column.id === 'customer') value = row[column.id]['customerName']
+                      if (column.id === 'customerEmail') value = row['customer']['customerEmail']
+                      if (column.id === 'products') value = row[column.id][0].productName
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === 'number'
