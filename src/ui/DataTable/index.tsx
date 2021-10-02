@@ -54,14 +54,6 @@ function createData(
   return { order, priority, delivery, status, channel, customer, customer_email, products };
 }
 
-const rows = [
-  createData('0', 'delivery', 'PICKUP', 'Confirmed', 'IOS', '', '', ''),
-  createData('1', 'ASAP', 'HUB', 'IN_PROCESS', 'HUB', '', '', ''),
-  createData('2', 'ASAP', 'DELIVER', 'IN_DELIVERY', 'ANDROID', '', '', ''),
-  createData('3', 'ASAP', 'IN_HUB', 'CANCEL', 'ANDROID', '', '', ''),
-  createData('4', 'ASAP', 'CONFIRMED', '_', 'HUB', '', '', '')
-];
-
 export default function DataTable() {
   const dispatch = useDispatch();
   const data = useAppSelector(selectOrders);
@@ -70,8 +62,7 @@ export default function DataTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   React.useEffect(() => {
-    return async () => {dispatch(fetchOrderData());
-    dispatch(sort())};
+    dispatch(fetchOrderData());
   }, [dispatch]);
 
   const handleChangePage = (event: unknown, newPage: number) => {
@@ -132,7 +123,7 @@ export default function DataTable() {
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={rows.length}
+          count={data.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
