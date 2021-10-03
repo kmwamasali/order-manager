@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Concept/Problem Statement
+
+An order management dashboard to recieve pizza orders from different hubs(interfaces) and notify clients of the status of their orders.
+Dashboard should be user friendly and rtl friendly
+React Dashboard App template bootstrapped with create-react-app, redux & TypeScript
 
 ## Available Scripts
 

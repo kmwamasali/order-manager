@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from '../../app/store';
+import { RootState } from '../../app/store';
 import { fetchData } from "./orderAPI";
 
 // Thunk to grab orderData
