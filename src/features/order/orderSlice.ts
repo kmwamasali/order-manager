@@ -13,11 +13,13 @@ export const fetchOrderData = createAsyncThunk(
 
 interface InitialState {
   orders: any[],
+  order: any,
   loading: string
 }
 
 const initialState: InitialState = {
   orders: [],
+  order: {},
   loading: 'idle'
 }
 
@@ -26,6 +28,9 @@ export const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
+    getOrder: (state, action) => {
+      state.order = state.orders.find(item => item.id === action.payload)
+    },
     add: (state, action) => {
       state.orders.push(action.payload)
     },
@@ -49,11 +54,12 @@ export const ordersSlice = createSlice({
   }
 });
 
-export const { add, sort } = ordersSlice.actions;
+export const { getOrder, add, sort } = ordersSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectOrders = (state: RootState) => state.orders.orders;
+export const selectOrder = (state: RootState) => state.orders.order;
 
 export default ordersSlice.reducer;

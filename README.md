@@ -2,11 +2,8 @@
 
 An order management dashboard to recieve pizza orders from different hubs(interfaces) and notify clients of the status of their orders.
 Dashboard should be user friendly and rtl friendly
-React Dashboard App template bootstrapped with create-react-app, redux & TypeScript
 
-## Available Scripts
-
-In the project directory, you can run:
+## How to run
 
 ### `npm start`
 

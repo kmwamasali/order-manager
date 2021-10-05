@@ -10,9 +10,10 @@ import TableRow from '@mui/material/TableRow';
 import { useAppSelector } from '../../app/hooks';
 import { selectOrders, fetchOrderData, sort } from '../../features/order/orderSlice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 interface Column {
-  id: 'number' | 'type' | 'receptionType' | 'requestedDate' | 'status' | 'channel' | 'customer' | 'customerEmail' | 'products';
+  id: 'id' | 'number' | 'type' | 'receptionType' | 'requestedDate' | 'status' | 'channel' | 'customer' | 'customerEmail' | 'products';
   label: string;
   minWidth?: number;
   align?: 'right';
@@ -20,11 +21,12 @@ interface Column {
 }
 
 const columns: readonly Column[] = [
-  { id: 'number', label: 'Order', minWidth: 100 },
+  { id: 'id', label: 'ID', minWidth: 100 },
+  { id: 'number', label: 'Order', minWidth: 50 },
   { id: 'type', label: 'Priority', minWidth: 100 },
   { id: 'receptionType', label: 'Delivery', minWidth: 100 },
-  { id: 'status', label: 'status', minWidth: 100, align: 'right' },
-  { id: 'channel', label: 'channel', minWidth: 100, align: 'right' },
+  { id: 'status', label: 'status', minWidth: 100 },
+  { id: 'channel', label: 'channel', minWidth: 100 },
   { id: 'customer', label: 'Customer Name', minWidth: 100 },
   { id: 'customerEmail', label: 'Customer Email', minWidth: 100 },
   { id: 'products', label: 'Products', minWidth: 100 }
@@ -109,8 +111,8 @@ export default function DataTable() {
                       if (column.id === 'products') value = row[column.id][0].productName
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
+                          {column.id === 'id'
+                            ? <Link to={`/orders/${value}`}>{value}</Link>
                             : value}
                         </TableCell>
                       );

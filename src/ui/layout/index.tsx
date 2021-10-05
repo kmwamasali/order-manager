@@ -88,11 +88,10 @@ function Layout({ pageTitle, children }: LayoutProps) {
         component="footer"
         sx={{
           borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 2,
-          py: [1, 6],
+          py: [0, 6],
         }}
       >
-        <Copyright sx={{ mt: 2 }} />
+        <Copyright sx={{ mt: 1 }} />
       </Container>
       {/* End footer */}
     </React.Fragment>
