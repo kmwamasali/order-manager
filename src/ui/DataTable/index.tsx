@@ -103,7 +103,7 @@ export default function DataTable() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.number}>
                     {columns.map((column) => {
                       let value = row[column.id];
                       if (column.id === 'customer') value = row[column.id]['customerName']

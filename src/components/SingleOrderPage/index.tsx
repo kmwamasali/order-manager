@@ -1,9 +1,10 @@
-import { Container, Paper } from '@mui/material';
+import { Container } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../app/hooks';
 import { getOrder, selectOrder } from '../../features/order/orderSlice';
 import Layout from '../../ui/Layout';
+import Page from '../../ui/Page';
 
 interface OrderProps {
   match: any
@@ -19,11 +20,9 @@ function SingleOrderPage(props: OrderProps) {
   }, []);
 
   return (
-    <Layout pageTitle='Dashboard'>
+    <Layout pageTitle='View Order'>
       <Container maxWidth="md" >
-        <Paper elevation={3} >
-        {order.id}
-        </Paper>
+        {order && <Page order={order} />}
       </Container>
     </Layout>
   )
