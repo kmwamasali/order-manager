@@ -2,15 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from '../../app/store';
 import { fetchData } from "./orderAPI";
 
-// Thunk to grab orderData
-export const fetchOrderData = createAsyncThunk(
-  'orders/fetchOrderData',
-  async () => {
-    const response = await fetchData();
-    return response.data;
-  }
-);
-
 interface InitialState {
   orders: any[],
   order: any,
@@ -22,6 +13,19 @@ const initialState: InitialState = {
   order: {},
   loading: 'idle'
 }
+
+// The function below is called a thunk and allows us to perform async logic. It
+// can be dispatched like a regular action: `dispatch(fetchOrderData())`. This
+// will call the thunk with the `dispatch` function as the first argument. Async
+// code can then be executed and other actions can be dispatched. Thunks are
+// typically used to make async requests.
+export const fetchOrderData = createAsyncThunk(
+  'orders/fetchOrderData',
+  async () => {
+    const response = await fetchData();
+    return response.data;
+  }
+);
 
 // Handle reducer actions
 export const ordersSlice = createSlice({

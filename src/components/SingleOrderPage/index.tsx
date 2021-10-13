@@ -17,12 +17,12 @@ function SingleOrderPage(props: OrderProps) {
 
   useEffect(() => {
     dispatch(getOrder(id))
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Layout pageTitle='View Order'>
       <Container maxWidth="md" >
-        {order && <Page order={order} />}
+        {(order.id === id) && <Page order={order} />}
       </Container>
     </Layout>
   )

@@ -5,6 +5,7 @@ function Page({ order }: any) {
   const productsList = order.products.map((p: any, i: number) => 
     <li key={i}>{p.productName}</li>
   )
+  console.log(order)
   return (
     order && (
       <Box sx={{ 
