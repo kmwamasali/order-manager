@@ -32,30 +32,6 @@ const columns: readonly Column[] = [
   { id: 'products', label: 'Products', minWidth: 100 }
 ];
 
-interface Data {
-  order: string;
-  priority: string;
-  delivery: string;
-  status: string;
-  channel: string;
-  customer: string;
-  customer_email: string;
-  products: string;
-}
-
-function createData(
-  order: string,
-  priority: string,
-  delivery: string,
-  status: string,
-  channel: string,
-  customer: string,
-  customer_email: string,
-  products: string
-): Data {
-  return { order, priority, delivery, status, channel, customer, customer_email, products };
-}
-
 export default function DataTable() {
   const dispatch = useDispatch();
   const data = useAppSelector(selectOrders);
@@ -109,7 +85,7 @@ export default function DataTable() {
                       if (column.id === 'customer') value = row[column.id]['customerName']
                       if (column.id === 'customerEmail') value = row['customer']['customerEmail']
                       if (column.id === 'products') value = row[column.id][0].productName
-                      return (
+                      return (// Refactor: table cells
                         <TableCell key={column.id} align={column.align}>
                           {column.id === 'id'
                             ? <Link to={`/orders/${value}`}>{value}</Link>
